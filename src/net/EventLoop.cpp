@@ -60,7 +60,9 @@ void EventLoop::Loop()
 	{
 #if defined(__linux) || defined(__linux__) 
 		std::shared_ptr<TaskScheduler> task_scheduler_ptr(new EpollTaskScheduler(n));
-#elif defined(WIN32) || defined(_WIN32) 
+#elif defined(__APPLE__)
+        std::shared_ptr<TaskScheduler> task_scheduler_ptr(new SelectTaskScheduler(n));
+#elif defined(WIN32) || defined(_WIN32)
 		std::shared_ptr<TaskScheduler> task_scheduler_ptr(new SelectTaskScheduler(n));
 #endif
 		task_schedulers_.push_back(task_scheduler_ptr);

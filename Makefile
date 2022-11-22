@@ -14,7 +14,7 @@ STRIP = $(CROSS_COMPILE)strip
 INC  = -I$(shell pwd)/src/ -I$(shell pwd)/src/net -I$(shell pwd)/src/xop -I$(shell pwd)/src/3rdpart
 LIB  =
 
-LD_FLAGS  = -lrt -pthread -lpthread -ldl -lm $(DEBUG)
+LD_FLAGS  = -pthread -lpthread -ldl -lm $(DEBUG)
 CXX_FLAGS = -std=c++11
 
 O_FLAG = -O2
